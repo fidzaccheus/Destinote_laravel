@@ -1,7 +1,14 @@
-import './bootstrap';
+import "./bootstrap";
 
-import Alpine from 'alpinejs';
+import * as bootstrap from "bootstrap";
 
-window.Alpine = Alpine;
+window.bootstrap = bootstrap;
 
-Alpine.start();
+document.addEventListener("DOMContentLoaded", function () {
+    var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
